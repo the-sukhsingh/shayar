@@ -1,21 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Gurmukhi:wght@100..900&family=Noto+Serif+Gurmukhi:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Gurmukhi:wght@100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Add your custom styles here */
+@layer utilities {
+  .transition-all {
+    transition: all 0.5s ease-in-out;
+    transition-delay: 0.2ms;
+  }
+  .shadow-xl {
+    box-shadow: 4px 4px 2px 0px #ffffff;
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: white;
+}
+
+.poem-text {
+  font-family: "Noto Serif Gurmukhi", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-size: 1.2rem;
+    line-height: 1.5;
 }

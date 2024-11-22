@@ -1,6 +1,7 @@
 "use client"
 import React,{useState,useEffect} from 'react'
 import { useParams } from "next/navigation";
+import ScaleButtons from '../components/ScaleButtons';
 
 const Page = () => {
     const {slug} = useParams()
@@ -17,11 +18,12 @@ const Page = () => {
     }, [slug])
 
 return (<>
-    <div className="min-h-screen p-4 flex flex-col items-center bg-slate-700">
+    <div className="min-h-screen p-4 flex flex-col items-center">
             <h1 className="text-4xl font-bold mb-4 underline text-center">{poem ? poem.title : "Loading..."}</h1>
         <div className="max-w-4xl leading-relaxed text-center poem-text">
-                <p dangerouslySetInnerHTML={{ __html: poem ? poem.body.replace(/\n/g, "<br>") : "Loading..." }}></p>
+                <p className='poem-text-p' dangerouslySetInnerHTML={{ __html: poem ? poem.body.replace(/\n/g, "<br>") : "Loading..." }}></p>
         </div>
+        <ScaleButtons />
     </div>
 </>
 )

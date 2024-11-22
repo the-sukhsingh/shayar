@@ -1,22 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Gurmukhi:wght@100..900&family=Noto+Serif+Gurmukhi:wght@100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Gurmukhi:wght@100..900&display=swap");
-@tailwind base;
+@import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&family=Lilita+One&family=Noto+Sans+Gurmukhi:wght@100..900&family=Noto+Serif+Gurmukhi:wght@100..900&display=swap');@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Add your custom styles here */
 @layer utilities {
   .transition-all {
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
     transition-delay: 0.2ms;
   }
   .shadow-xl {
-    box-shadow: 4px 4px 2px 0px #ffffff;
+    box-shadow: 4px 4px 1px 0px #63e;
   }
 }
 
+.logotext{
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+}
+
 body {
-  background-color: black;
+  background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
   color: white;
 }
 
@@ -27,5 +34,31 @@ body {
   font-style: normal;
   font-variation-settings: "wdth" 100;
   font-size: 1.2rem;
-    line-height: 1.5;
+  line-height: 1.5;
+}
+
+nav,
+footer {
+  z-index: 10;
+  border-radius: 0;
+  background: rgba(101, 51, 238, 0.366);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
+  border: 1px solid rgba(255, 245, 245, 0.23);
+}
+
+.size-button {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background: rgba(101, 51, 238);
+}
+
+.title-block {
+  z-index: 9;
+  border: 1.2px solid #63e;
+  transition: all 0.5s ease-in-out;
+
 }

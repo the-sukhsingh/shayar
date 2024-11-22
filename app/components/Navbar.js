@@ -2,9 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 const Navbar = () => {
     return (
-        <nav className="bg-gray-800 p-4 flex justify-around items-center sticky top-0">
+        <nav className="border-b-2 border-violet-700 p-4 flex justify-around items-center sticky top-0 left-0 rounded-none">
             <div className="text-white text-xl md:text-2xl font-bold">
-                <Link href="/">SHAYAR BAJWA</Link>
+                <Link href="/" className='logotext'>SHAYAR BAJWA</Link>
             </div>
             <ul className="flex space-x-4 ">
                 <li>

@@ -11,7 +11,7 @@
     transition-delay: 0.2ms;
   }
   .shadow-xl {
-    box-shadow: 4px 4px 1px 0px #63e;
+    box-shadow: 4px 4px 1px 0px rgb(154, 60, 226);
   }
 }
 
@@ -23,7 +23,7 @@
 }
 
 body {
-  background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
+  background: radial-gradient(125% 125% at 50% 10%, #000 40%, rgb(154, 60, 226) 100%);
   color: white;
 }
 
@@ -41,7 +41,7 @@ nav,
 footer {
   z-index: 10;
   border-radius: 0;
-  background: rgba(101, 51, 238, 0.366);
+  background: rgba(154, 60, 226, 0.366);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(11.5px);
@@ -53,12 +53,12 @@ footer {
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
-  background: rgba(101, 51, 238);
+  background: rgb(154, 60, 226);
 }
 
 .title-block {
   z-index: 9;
-  border: 1.2px solid #63e;
+  border: 1.2px solid rgb(154, 60, 226);
   transition: all 0.5s ease-in-out;
 
 }

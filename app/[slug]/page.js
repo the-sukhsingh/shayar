@@ -9,24 +9,21 @@ import AddPoem from '../components/AddPoem';
 const Page = () => {
     const { poems } = React.useContext(PoemContext);
     const { slug } = useParams();
-    if(slug == "Addpoem"){
-        return <AddPoem/>
-    }
+
     const [poem, setPoem] = useState(null);
     useEffect(() => {
+        if(slug == "Addpoem"){
+            return <AddPoem/>
+        }
         if (poems) {
             const poem = poems.find((poem) => 
             {
                 return poem.slug == decodeURIComponent(slug)});
             setPoem(poem);
+            document.title = poem.title;
         }
     }, [poems, slug]);
 
-    useEffect(() => {
-        if (poem) {
-            document.title = poem.title;
-        }
-    }, [poem])
 
 return (<>
     <div className="min-h-screen p-4 flex flex-col items-center">

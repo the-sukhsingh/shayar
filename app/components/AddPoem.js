@@ -1,7 +1,9 @@
 "use client"
-import React,{useState,useEffect} from 'react'
+import React,{useState,useContext} from 'react'
+import { PoemContext } from '../context/PoemContext'
 
-const Page = () => {
+const AddPoem = () => {
+    const { handleSubmit } = useContext(PoemContext)
     const [Poem, setPoem] = useState(
         {
             title: "",
@@ -9,29 +11,6 @@ const Page = () => {
             password:"",
         }
     )
-
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-
-        try {
-            const res = await fetch("https://back-2qdp.onrender.com/addPoem", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(Poem),
-            })
-            const data = await res.json()
-            console.log(data)
-            setPoem({
-                title: "",
-                body: "",
-            })
-        } catch (error) {
-            console.error(error)
-        }
-    }
-
 return (
     <>
             <form className="max-w-lg mx-auto p-4 bg-gray-800 shadow-md rounded mt-5">
@@ -68,7 +47,9 @@ return (
                                     className="w-full px-3 py-2 border rounded text-black"
                             />
                     </div>
-                    <button type="submit" onClick={handleSubmit} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    <button type="submit" onClick={(e)=>{
+                        handleSubmit(e,Poem)
+                    }} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             Submit
                     </button>
             </form>
@@ -76,4 +57,4 @@ return (
 )
 }
 
-export default Page
+export default AddPoem

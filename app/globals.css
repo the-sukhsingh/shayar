@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --main-bg-color-rgb: 154, 60, 226;
+  --main-bg-color: rgb(var(--main-bg-color-rgb));
+  --nav-footer-bg-color: rgba(var(--main-bg-color-rgb), 0.366);
+}
+
 /* Add your custom styles here */
 @layer utilities {
   .transition-all {
@@ -11,7 +17,7 @@
     transition-delay: 0.2ms;
   }
   .shadow-xl {
-    box-shadow: 4px 4px 1px 0px rgb(154, 60, 226);
+    box-shadow: 4px 4px 1px 0px var(--main-bg-color);
   }
 }
 
@@ -22,9 +28,9 @@
 }
 
 body {
-  background: radial-gradient(125% 125% at 50% 10%, #000 40%, rgb(154, 60, 226) 100%);
+  background: radial-gradient(125% 125% at 50% 10%, #000 40%, var(--main-bg-color) 100%);
   color: white;
-}
+  transition: background 1s cubic-bezier(0.4, 0, 0.2, 1);}
 
 .poem-text {
   font-family: "Noto Serif Gurmukhi", serif;
@@ -40,24 +46,35 @@ nav,
 footer {
   z-index: 10;
   border-radius: 0;
-  background: rgba(154, 60, 226, 0.366);
+  background: var(--nav-footer-bg-color);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(11.5px);
   -webkit-backdrop-filter: blur(11.5px);
   border: 1px solid rgba(255, 245, 245, 0.23);
+  transition: background 1s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: bganimate 0.5s forwards ease-in-out;
+}
+
+@keyframes bganimate {
+  0% {
+    background: var(--main-bg-color);
+  }
+  100% {
+    background: var(--nav-footer-bg-color);
+  }
 }
 
 .size-button {
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
-  background: rgb(154, 60, 226);
+  background: var(--main-bg-color);
 }
 
 .title-block {
   z-index: 9;
-  border: 1.2px solid rgb(154, 60, 226);
+  border: 1.2px solid var(--main-bg-color);
   transition: all 0.5s ease-in-out;
 
 }

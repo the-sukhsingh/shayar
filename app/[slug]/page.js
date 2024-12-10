@@ -1,21 +1,32 @@
 "use client"
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect, use} from 'react'
 import { useParams } from "next/navigation";
 import ScaleButtons from '../components/ScaleButtons';
+import { PoemContext } from '../context/PoemContext';
+import AddPoem from '../components/AddPoem';
+
 
 const Page = () => {
-    const {slug} = useParams()
-    const [poem, setPoem] = useState(null)
+    const { poems } = React.useContext(PoemContext);
+    const { slug } = useParams();
+    if(slug == "Addpoem"){
+        return <AddPoem/>
+    }
+    const [poem, setPoem] = useState(null);
+    useEffect(() => {
+        if (poems) {
+            const poem = poems.find((poem) => 
+            {
+                return poem.slug == decodeURIComponent(slug)});
+            setPoem(poem);
+        }
+    }, [poems, slug]);
+
     useEffect(() => {
         if (poem) {
             document.title = poem.title;
         }
     }, [poem])
-    useEffect(() => {
-        fetch(`https://back-2qdp.onrender.com/poem/${slug}`)
-        .then(response => response.json())
-        .then(data => setPoem(data))
-    }, [slug])
 
 return (<>
     <div className="min-h-screen p-4 flex flex-col items-center">

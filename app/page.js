@@ -7,9 +7,21 @@ import { PoemContext } from "./context/PoemContext";
 const Page = () => {
   const { poems } = React.useContext(PoemContext);
 
+  
+    if (poems.length === 0) {
+      return (
+        <div className="flex justify-center items-center h-screen w-screen">
+          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-200"></div>
+        </div>
+      );
+    }
+  
   return (
     <div className="">
       <div className="w-full p-3 md:w-4/5 m-auto md:grid md:grid-cols-2 md:gap-3">
+
+  
+
         {poems && (
           <>
             {poems.map((poem) => (

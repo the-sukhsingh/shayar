@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { PoemProvider } from "./context/PoemContext";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata = {
   title: "Shayar Bajwa",
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
       <body
         className={`antialiased`}
       >
+
         <PoemProvider>
         <Navbar />
         <main className="min-h-screen">
@@ -22,6 +24,7 @@ export default function RootLayout({ children }) {
         
         </main>
         <Footer />
+        <Analytics/>
         </PoemProvider>
       </body>
     </html>

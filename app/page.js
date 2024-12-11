@@ -6,12 +6,11 @@ import { PoemContext } from "./context/PoemContext";
 
 const Page = () => {
   const { poems } = React.useContext(PoemContext);
-
   
     if (poems.length === 0) {
       return (
-        <div className="flex justify-center items-center h-screen w-screen">
-          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-200"></div>
+        <div className="flex justify-center items-center h-screen">
+          <div className="animate-spin rounded-full h-28 w-28 border-t-2 border-b-2 border-gray-200"></div>
         </div>
       );
     }

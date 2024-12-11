@@ -1,5 +1,5 @@
 "use client"
-import React,{useState,useEffect, use} from 'react'
+import React,{useState,useEffect} from 'react'
 import { useParams } from "next/navigation";
 import ScaleButtons from '../components/ScaleButtons';
 import { PoemContext } from '../context/PoemContext';
@@ -20,9 +20,14 @@ const Page = () => {
             {
                 return poem.slug == decodeURIComponent(slug)});
             setPoem(poem);
-            document.title = poem.title;
         }
     }, [poems, slug]);
+
+    useEffect(() => {
+        if (poem) {
+            document.title = poem.title;
+        }
+    }, [poem]);
 
 
 return (<>
